@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="testSlack()">Test Slack</button>
+<script>
+    async function testSlack() {
+        const response = await fetch('https://slack.com/api/chat.postMessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_SLACK_BOT_TOKEN'
+            },
+            body: JSON.stringify({
+                channel: '#crm-test',
+                text: 'Test message from CRM! 🚀'
+            })
+        });
+        const data = await response.json();
+        console.log('Slack response:', data);
+    }
+</script>
+</body>
+</html>
